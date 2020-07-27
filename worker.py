@@ -67,8 +67,10 @@ today = datetime.datetime.now(UTC_TIMEZONE)
 stop = datetime.datetime(today.year, today.month, today.day)
 
 start_block_id = BLOCKCHAIN_INSTANCE.get_estimated_block_num(start, accurate=True)
-stop_block_id = BLOCKCHAIN_INSTANCE.get_estimated_block_num(stop, accurate=True)
+start_block_id = 45519422
 
+stop_block_id = BLOCKCHAIN_INSTANCE.get_estimated_block_num(stop, accurate=True)
+stop_block_id = 45519430
 logger.info(f"start time: {start}")
 logger.info(f"start block: {start_block_id}")
 logger.info(f"start time: {stop}")
