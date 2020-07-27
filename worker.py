@@ -67,10 +67,8 @@ today = datetime.datetime.now(UTC_TIMEZONE)
 stop = datetime.datetime(today.year, today.month, today.day)
 
 start_block_id = BLOCKCHAIN_INSTANCE.get_estimated_block_num(start, accurate=True)
-start_block_id = 45519422
 
 stop_block_id = BLOCKCHAIN_INSTANCE.get_estimated_block_num(stop, accurate=True)
-stop_block_id = 45519430
 logger.info(f"start time: {start}")
 logger.info(f"start block: {start_block_id}")
 logger.info(f"start time: {stop}")
@@ -138,5 +136,5 @@ for com_json in BLOCKCHAIN_INSTANCE.stream(opNames=['comment'], start=start_bloc
 
 
 ### DUMP THE BAG ! 
-with (KEEPED / pl.Path(f"{today.strftime('%Y-%m-%d')}-days{days}.json")).open('r') as flux:
+with (KEEPED_DIRECTORY / pl.Path(f"{today.strftime('%Y-%m-%d')}-days{days}.json")).open('w') as flux:
     json.dump(KEEPED, flux)
